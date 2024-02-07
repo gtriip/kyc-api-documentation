@@ -21,5 +21,8 @@ For authentication purposes, an API key is required in the request header with t
 * [FR Liveness Check API](./FR/FaceLivenessAPI.md): POST /liveness/
 * [FR Comparing API](./FR/FaceCompareAPI.md): POST /compare/
 
+## Envoking sequence
+If you are required to generate session key for your requests, then it shall be in the sequence of Session -> OCR(either id or passport) -> FR (liveness -> compare); Else it shall only involve OCR and FR part in the sequence above.
+
 ## Postman URL
 The postman collection is here in [Postman Collection](https://api.postman.com/collections/14363995-7fe3a40c-dfbf-40b3-bb4c-e61bb4256b02?access_key=PMAT-01HP16V8N6BHH3M27KP7MQNCJQ). 
