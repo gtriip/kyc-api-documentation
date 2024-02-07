@@ -55,7 +55,7 @@ The dictionary content is as listed in the table below. For more detailed inform
 | `valid_expiration_date`| Boolean | Indicates if the expiration date is valid, matching the check digit. |
 | `valid_composite`      | Boolean | Indicates if the composite validation is valid, matching the check digit. |
 | `valid_personal_number` | Boolean | Indicates if the personal number is valid, matching the check digit. |
-| `real_confidence` | Float | *Experimental* This is the confidence level we provide, for checking if the passport is a real passport or a photocopy/scan of a passport. The higher this value is, the more possible that it's a real passport. |
+<!-- | `real_confidence` | Float | *Experimental* This is the confidence level we provide, for checking if the passport is a real passport or a photocopy/scan of a passport. The higher this value is, the more possible that it's a real passport. | -->
 
 ## List of Error Messages and Error Codes
 The following is a comprehensive list of potential error codes returned by the engine, along with their respective error messages and explanations:

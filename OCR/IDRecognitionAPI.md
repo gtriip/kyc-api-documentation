@@ -37,6 +37,7 @@ We are still adding more IDs to this list.
 | `image_back` or `image_back_bytes`   | NO       | File or Bytes | You may provide one of these two options, depending on your requirements. For `image_back`, we accept image files directly, while for `image_back_bytes`, we expect a **base64-encoded** image. Please note that if you set `front_only` to `False`, this field is **required**.| 
 | `skip_face_detect`                   | NO       | List of selections       | This field is optional, the default value is an empty list. This field let you decide which types of the IDs should be ignored for face detection. You should provide a list of selections in 'SGN', 'SGP', 'VNM', 'VNO', 'VNN', 'VND', 'KRI', 'KRD', 'MOO', 'MON', 'HKI', 'EEP', 'AUD', 'KTP' for the types of ID that you wish to allow the face check to be bypassed. |
 | `country_code`                       | NO       | List of selections       | This field is optional, the default value is a list: `['SG', 'VN', 'KR', 'MO', 'ID', 'AU']`. You may select in this list for your use case, so that other kinds of IDs won't be checked. Please refer to the example notebook and Postman for detailed use cases of this field.|
+<!-- | `real_confidence` | *Experimental* This is the confidence level we provide, for checking if the ID is a real ID or a photocopy/scan of a ID. The higher this value is, the more possible that it's a real ID. | -->
 
 ## Response Fields
 | Response Field Name 	| Type    	| Remarks                                                                                                                                                    	|
@@ -54,7 +55,6 @@ In common, all the IDs have these three fields:
 | `error_count`     	| How many important fields are producing result that is not in desired format. 	|
 | `max_error_count` 	| The maximum allowed error count for the current type of ID.                   	|
 | `document_type`   	| The document type as inferred by the engine.                                  	|
-| `real_confidence` | *Experimental* This is the confidence level we provide, for checking if the ID is a real ID or a photocopy/scan of a ID. The higher this value is, the more possible that it's a real ID. |
 
 For the specific fields for different types of ID, please check in their own sections:
 [HKI](#hong-kong-id-hki), [MOO&MON](#macau-ids-moo-and-mon), [SGN](#singapore-nric-sgn), [SGP](#singapore-employment-pass--work-pass--s-pass-sgp), [EEP](#exit-entry-pass-for-visiting-hong-kong-and-macau-eep), [KRI](#korean-ids-kri), [KRD](#korean-driving-licenses-krd), [VNO](#vietnam-old-id-vno), [VNM, VNN](#vietnam-ids-before-and-after-the-update-vnm-vnn), [AUD](#australian-driving-license-aud), [KTP](#indonesian-id-ktp).
