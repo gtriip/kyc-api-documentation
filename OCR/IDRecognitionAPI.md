@@ -3,6 +3,8 @@ This is the API for ID recognition. The ID types we currently support are:
 * Singapore
   * `SGN` NRIC for locals and PRs
   * `SGP` Work Permit, Employment Pass, S Pass
+  * `SGD` Singapore Driving License
+  * `SGS` Singapore Student Pass & Dependant Pass
 * Hong Kong
   * `HKI` Hong Kong ID (Both old and new)
 * Macau
@@ -177,103 +179,103 @@ For the specific fields for different types of ID, please check in their own sec
 ### Korean Driving Licenses `KRD`
 | Field Name              | Remarks                                   |
 | ----------------------- | ----------------------------------------- |
-| korean_name             | *(Important field)* Korean name of the ID holder. |
-| first_name              | First name of the ID holder. |
-| last_name               | Last name of the ID holder.  |
-| license_type            | License type.              |
-| home_address            | Home address of the ID holder. |
-| number                  | *(Important field)* ID number.                   |
-| license_number          | License number.            |
-| serial_number           | Serial number for the license.             |
-| date_of_birth           | *(Important field)* Date of birth of the ID holder. |
-| sex                     | Gender of the ID holder.      |
-| restrictions            | License restrictions.       |
-| renewal_period          | License renewal period.     |
-| nationality             | Nationality of the ID holder. |
-| place_of_birth          | Place of birth of the ID holder. |
-| differentiating_number  | Differentiating number extracted from the ID number.      |
-| issuing_date            | *(Important field)* Date of issuance of the ID.  |
-| issuing_authority       | Issuing authority of the ID. |
+| `korean_name`             | *(Important field)* Korean name of the ID holder. |
+| `first_name`              | First name of the ID holder. |
+| `last_name`               | Last name of the ID holder.  |
+| `license_type`            | License type.              |
+| `home_address`            | Home address of the ID holder. |
+| `number`                  | *(Important field)* ID number.                   |
+| `license_number`          | License number.            |
+| `serial_number`           | Serial number for the license.             |
+| `date_of_birth`           | *(Important field)* Date of birth of the ID holder. |
+| `sex`                     | Gender of the ID holder.      |
+| `restrictions`            | License restrictions.       |
+| `renewal_period`          | License renewal period.     |
+| `nationality`             | Nationality of the ID holder. |
+| `place_of_birth`          | Place of birth of the ID holder. |
+| `differentiating_number`  | Differentiating number extracted from the ID number.      |
+| `issuing_date`            | *(Important field)* Date of issuance of the ID.  |
+| `issuing_authority`       | Issuing authority of the ID. |
 
 ### Vietnam Old ID `VNO`
 | Field Name   | Remarks                                           |
 | ------------  | ------------------------------------------------- |
-| full_name     | Full name of the ID holder.         |
-| first_name    | First name of the ID holder.        |
-| last_name     | Last name of the ID holder.         |
-| date_of_birth | *(Important field)* Date of birth of the ID holder.     |
-| number        | *(Important field)* ID number.                   |
-| nationality   | Nationality of the ID holder.      |
-| home_town     | Hometown of the ID holder.         |
-| residence     | Residence address of the ID holder.|
+| `full_name`     | Full name of the ID holder.         |
+| `first_name`    | First name of the ID holder.        |
+| `last_name`     | Last name of the ID holder.         |
+| `date_of_birth` | *(Important field)* Date of birth of the ID holder.     |
+| `number`        | *(Important field)* ID number.                   |
+| `nationality`   | Nationality of the ID holder.      |
+| `home_town`     | Hometown of the ID holder.         |
+| `residence`     | Residence address of the ID holder.|
 
 ### Vietnam IDs, before and after the update `VNM`, `VNN`
 | Field Name    | Remarks                                           |
 | -------------  | ------------------------------------------------- |
-| full_name      | *(Important field)* Full name of the ID holder.         |
-| first_name     | First name of the ID holder.        |
-| last_name      | Last name of the ID holder.         |
-| date_of_birth  | *(Important field)* Date of birth of the ID holder.     |
-| home_town      | Hometown of the ID holder.         |
-| number         | *(Important field)* ID number.                         |
-| sex            | Gender of the ID holder.           |
-| nationality    | Nationality of the ID holder.      |
-| residence      | Residence address of the ID holder.|
-| valid_until    | Validity date of the ID.           |
-| expired        | Indicates whether the ID has expired.            |
+| `full_name`      | *(Important field)* Full name of the ID holder.         |
+| `first_name`     | First name of the ID holder.        |
+| `last_name`      | Last name of the ID holder.         |
+| `date_of_birth`  | *(Important field)* Date of birth of the ID holder.     |
+| `home_town`      | Hometown of the ID holder.         |
+| `number`         | *(Important field)* ID number.                         |
+| `sex`            | Gender of the ID holder.           |
+| `nationality`    | Nationality of the ID holder.      |
+| `residence`      | Residence address of the ID holder.|
+| `valid_until`    | Validity date of the ID.           |
+| `expired`        | Indicates whether the ID has expired.            |
 
 ### Vietnam Driving License `VND`
 | Field Name      | Remarks                                           |
 | ---------------- | ------------------------------------------------- |
-| full_name        | *(Important field)* Full name of the ID holder.         |
-| first_name       | First name of the ID holder.        |
-| last_name        | Last name of the ID holder.         |
-| date_of_birth    | *(Important field)* Date of birth of the ID holder.     |
-| nationality      | Nationality of the ID holder.      |
-| number           | *(Important field)* ID number.                         |
-| residence        | Residence address of the ID holder.|
-| license_class    | Class of the license.              |
-| valid_until      | *(Important field)* Validity date of the ID.           |
-| expired          | Indicates whether the ID has expired.            |
-| sex              | Gender of the ID holder.           |
+| `full_name`        | *(Important field)* Full name of the ID holder.         |
+| `first_name`       | First name of the ID holder.        |
+| `last_name`        | Last name of the ID holder.         |
+| `date_of_birth`    | *(Important field)* Date of birth of the ID holder.     |
+| `nationality`      | Nationality of the ID holder.      |
+| `number`           | *(Important field)* ID number.                         |
+| `residence`        | Residence address of the ID holder.|
+| `license_class`    | Class of the license.              |
+| `valid_until`      | *(Important field)* Validity date of the ID.           |
+| `expired`          | Indicates whether the ID has expired.            |
+| `sex`              | Gender of the ID holder.           |
 
 ### Australian Driving License `AUD`
 | Field Name      | Remarks                                           |
 | ---------------- | ------------------------------------------------- |
-| full_name        | *(Important field)* Full name of the ID holder.         |
-| first_name       | *(Important field)* First name of the ID holder.        |
-| last_name        | *(Important field)* Last name of the ID holder.         |
-| card_number      | *(Important field)* Card number.                       |
-| number           | *(Important field)* ID number.                         |
-| date_of_birth    | *(Important field)* Date of birth of the ID holder.     |
-| residence        | Residence address of the ID holder.|
-| effective_since  | Date when the ID becomes effective.|
-| valid_until      | Validity date of the ID.           |
-| state            | State information engine parsed from the ID.|
-| height           | Height of the ID holder.           |
-| license_class    | Class of the license.              |
-| conditions       | Additional conditions on the ID.   |
-| sex              | Gender of the ID holder.           |
-| expired          | Indicates whether the ID has expired.            |
+| `full_name`        | *(Important field)* Full name of the ID holder.         |
+| `first_name`       | *(Important field)* First name of the ID holder.        |
+| `last_name`        | *(Important field)* Last name of the ID holder.         |
+| `card_number`      | *(Important field)* Card number.                       |
+| `number`           | *(Important field)* ID number.                         |
+| `date_of_birth`    | *(Important field)* Date of birth of the ID holder.     |
+| `residence`        | Residence address of the ID holder.|
+| `effective_since`  | Date when the ID becomes effective.|
+| `valid_until`      | Validity date of the ID.           |
+| `state`            | State information engine parsed from the ID.|
+| `height`           | Height of the ID holder.           |
+| `license_class`    | Class of the license.              |
+| `conditions`       | Additional conditions on the ID.   |
+| `sex`              | Gender of the ID holder.           |
+| `expired`          | Indicates whether the ID has expired.            |
 
 ### Indonesian ID `KTP`
 | Field Name        | Remarks                                          |
 | ------------------ | ------------------------------------------------ |
-| number            | *(Important field)* NIK number.                        |
-| name              | *(Important field)* Name of the ID holder.            |
-| place_of_birth    | Place of birth of the ID holder.  |
-| date_of_birth     | *(Important field)* Date of birth of the ID holder.   |
-| sex               | Gender of the ID holder.          |
-| blood_type        | Blood type of the ID holder.       |
-| address           | Address of the ID holder.         |
-| religion          | Religion of the ID holder.        |
-| marital_status    | Marital status of the ID holder.  |
-| occupation        | Occupation of the ID holder.      |
-| citizenship       | Citizenship of the ID holder.     |
-| valid_until       | *(Important field)* Validity date of the ID.          |
-| expired           | Indicates whether the ID has expired.           |
-| place_of_issue    | Place of issue of the ID.         |
-| date_of_issue     | Date of issue of the ID.          |
+| `number`            | *(Important field)* NIK number.                        |
+| `name`              | *(Important field)* Name of the ID holder.            |
+| `place_of_birth`    | Place of birth of the ID holder.  |
+| `date_of_birth`     | *(Important field)* Date of birth of the ID holder.   |
+| `sex`               | Gender of the ID holder.          |
+| `blood_type`        | Blood type of the ID holder.       |
+| `address`           | Address of the ID holder.         |
+| `religion`          | Religion of the ID holder.        |
+| `marital_status`    | Marital status of the ID holder.  |
+| `occupation`        | Occupation of the ID holder.      |
+| `citizenship`       | Citizenship of the ID holder.     |
+| `valid_until`       | *(Important field)* Validity date of the ID.          |
+| `expired`           | Indicates whether the ID has expired.           |
+| `place_of_issue`    | Place of issue of the ID.         |
+| `date_of_issue`     | Date of issue of the ID.          |
 
 ## List of Error Messages and Error Codes
 
