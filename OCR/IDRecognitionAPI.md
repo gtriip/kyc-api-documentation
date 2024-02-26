@@ -289,3 +289,12 @@ The following is a comprehensive list of potential error codes returned by the e
 | `004`        | Request is not in the correct format.              | This error indicates an issue with the request format or missing key fields.|
 | `005`        | Server internal error, please try again.           | In the case of an internal server error, please contact us if the issue persists.|
 | `021`        | Failed to match to any type of ID supported, the recognition failed. | This implies that the recognition result does not match any of the available templates in the selection, or it contains an excessive number of errors for the recognized ID types. In such cases, you may want to advise the user to retry the process or consider using a supported ID instead. |
+
+## `country_code` Explained
+We use `country_code` tp set the possible ID types we would check out. Here is the list of country codes, and the ID types they support. You may refer to them and suit to your use case. In the case you with to add a specific one for your own usage, please message us.
+* `SG`: `SGN`, `SGP`, `SGS`, `SGD` (Covering Singapore NRIC, PRIC, Work Permit, Employment Pass, S Pass, Singapore Student Pass, Dependant Pass, and Driving License)
+* `VN`: `VNM`, `VND`, `VNO`, `VNN` (Covering all versions of the Vietnam IDs and Driving License)
+* `KR`: `KRI`, `KRD` (Covering Korean IDs and Driving Licenses)
+* `MO`: `HKI`, `MOO`, `MON`, `EEP` (Covering common IDs used in Hong Kong and Macau region)
+* `AU`: `AUD` (Covering Australian Driving Licenses for QLD, VIC and NSW)
+* `ID`: `KTP` (Covering Kartu Tanda Penduduk in Indonesia)
