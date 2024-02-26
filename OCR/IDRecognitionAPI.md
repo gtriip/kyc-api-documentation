@@ -4,7 +4,7 @@ This is the API for ID recognition. The ID types we currently support are:
   * `SGN` NRIC for locals and PRs
   * `SGP` Work Permit, Employment Pass, S Pass
   * `SGD` Singapore Driving License
-  * `SGS` Singapore Student Pass & Dependant Pass
+  * `SGS` Singapore Student Pass, Dependant Pass & LTVP (*Only remaining physical cards supported*)
 * Hong Kong
   * `HKI` Hong Kong ID (Both old and new)
 * Macau
