@@ -42,6 +42,8 @@ The following is a comprehensive list of potential error codes returned by the e
 | Error Code | Error Message                                        | Remarks                                                    |
 |------------|-----------------------------------------------------|------------------------------------------------------------|
 | `001`        | API key is either missing or incorrect.            | Please check the provided API key.            |
+| `061`        | Session key is not found, please try again. | Please check if you have included the correct session key in your request. |
+| `062`        | Session key limit reached, please try restart. | The limit for the certain API access for this API key has reached. Please request for a new one if you wish to continue requesting this API endpoint. | 
 | `002`        | Error reading image, please check the request format. | This error occurs when the image fails to be recognized in the expected format.|
 | `003`        | Image file size is too large.                      | The engine has a 10MB limit for image files; ensure they do not exceed this size.|
 | `004`        | Request is not in the correct format.              | This error indicates an issue with the request format or missing key fields.|
