@@ -14,8 +14,9 @@ This API is designed to process passport detail recognition requests. It is spec
 ## Request Fields
 | Request Field Name      | Required | Type          | Remarks |
 |-------------------------|----------|---------------|---------|
-| `image` or `image_bytes`| YES      | File or Bytes | You must provide one of these options, depending on your requirements. For `image`, we accept image files directly, while for `image_bytes`, we expect a **base64-encoded** image. Please refer to the example notebook and Postman for detailed use cases of this field.
-| `skip_face_detect`      | NO       | Boolean       | This field is optional and defaults to `False`. You may turn it on if you do not wish to check for a face in the passport image.
+| `image` or `image_bytes`| YES      | File or Bytes | You must provide one of these options, depending on your requirements. For `image`, we accept image files directly, while for `image_bytes`, we expect a **base64-encoded** image. Please refer to the example notebook and Postman for detailed use cases of this field. |
+| `skip_face_detect`      | NO       | Boolean       | This field is optional and defaults to `False`. You may turn it on if you do not wish to check for a face in the passport image. |
+| `verify_liveness`       | NO       | Boolean       | This field is optional and defaults to `False`. You may turn it on if you wish to verify the liveness of document. |
 
 ## Response Fields
 | Response Field Name | Type     | Remarks                                            |
@@ -69,6 +70,7 @@ The following is a comprehensive list of potential error codes returned by the e
 | `003`        | Image file size is too large.                      | The engine has a 10MB limit for image files; ensure they do not exceed this size.|
 | `004`        | Request is not in the correct format.              | This error indicates an issue with the request format or missing key fields.|
 | `005`        | Server internal error, please try again.           | In the case of an internal server error, please try again and contact us if the issue persists.|
+| `006`        | Document liveness verification failed!             | Document liveness verification returned a none `Genuine` status, please use your original passport to take. |
 | `011`        | Face image is required but not found in the document. | This error is prompted when `skip_face_detect` is set to false, but no valid face image is found in the document.|
 | `012`        | MRZ code is of a different type, please try again. | This error is triggered when the MRZ code recognized is not "TD3," leading to a failed recognition.|
 | `013`        | Error reading MRZ code, please try again.          | This error occurs during the MRZ reading process, often due to offsets caused by stains or other issues.|

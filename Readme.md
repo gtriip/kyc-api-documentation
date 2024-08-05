@@ -52,3 +52,6 @@ If you are required to generate session key for your requests, then it shall be 
 * **Blurryness:** The face image must be clear; blurry images may be rejected.
 
 * **Background:** Ensure that the background is clear of other faces. Images with multiple detected faces in a single selfie will be rejected.
+
+## Update Notes:
+* 05/08/2024: We have introduced a beta version of document liveness detection. We plan to upgrade this version within a month to enhance its speed and accuracy.

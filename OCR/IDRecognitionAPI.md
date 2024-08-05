@@ -39,7 +39,8 @@ We are still adding more IDs to this list.
 | `image_back` or `image_back_bytes`   | NO       | File or Bytes | You may provide one of these two options, depending on your requirements. For `image_back`, we accept image files directly, while for `image_back_bytes`, we expect a **base64-encoded** image. Please note that if you set `front_only` to `False`, this field is **required**.| 
 | `skip_face_detect`                   | NO       | List of selections       | This field is optional, the default value is an empty list. This field let you decide which types of the IDs should be ignored for face detection. You should provide a list of selections in 'SGN', 'SGP', 'VNM', 'VNO', 'VNN', 'VND', 'KRI', 'KRD', 'MOO', 'MON', 'HKI', 'EEP', 'AUD', 'KTP' for the types of ID that you wish to allow the face check to be bypassed. |
 | `country_code`                       | NO       | List of selections       | This field is optional, the default value is a list: `['SG', 'VN', 'KR', 'MO', 'ID', 'AU']`. You may select in this list for your use case, so that other kinds of IDs won't be checked. Please refer to the example notebook and Postman for detailed use cases of this field.|
-<!-- | `real_confidence` | *Experimental* This is the confidence level we provide, for checking if the ID is a real ID or a photocopy/scan of a ID. The higher this value is, the more possible that it's a real ID. | -->
+| `verify_liveness`                    | NO       | Boolean                  | This field is optional and defaults to `False`. You may turn it on if you wish to verify the liveness of document. |
+
 
 ## Response Fields
 | Response Field Name 	| Type    	| Remarks                                                                                                                                                    	|
@@ -290,6 +291,7 @@ The following is a comprehensive list of potential error codes returned by the e
 | `003`        | Image file size is too large.                      | The engine has a 10MB limit for image files; ensure they do not exceed this size.|
 | `004`        | Request is not in the correct format.              | This error indicates an issue with the request format or missing key fields.|
 | `005`        | Server internal error, please try again.           | In the case of an internal server error, please contact us if the issue persists.|
+| `006`        | Document liveness verification failed!             | Document liveness verification returned a none `Genuine` status, please use your original ID to take. |
 | `021`        | Failed to match to any type of ID supported, the recognition failed. | This implies that the recognition result does not match any of the available templates in the selection, or it contains an excessive number of errors for the recognized ID types. In such cases, you may want to advise the user to retry the process or consider using a supported ID instead. |
 
 ## `country_code` Explained
