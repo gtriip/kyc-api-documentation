@@ -39,9 +39,12 @@ The result fields of a face comparison request are formatted as follows:
 |----------------------|----------|----------------------------------------------------|
 | `is_match`            | Boolean  | Indicates whether the two faces match, based on the threshold with an error rate of 0.01%. |
 | `score`               | Float    | A score rounded to two decimal places in the range [0~100], describing how similar the two faces provided are. |
-| `one_e3`              | Float    | A threshold score rounded to two decimal places in the range [0~100], showing the minimum requirement of the score when the **False Acceptance Rate** is 0.1%. This bar is the lowest. |
+| `failed_stage` | Int | An indicator for the stage where it failed. You should refer to this when you ask the guest to upload a selfie holding their ID. There are three stages: <ol><li> The face does not match inside the ID+selfie image.</li><li> The face does not match on ID and selfie face. </li> <li> The face does not match on ID image and held ID. </li></ol> The `failed_stage` indicates which compare does the process fails at.|
+<!-- | `one_e3`              | Float    | A threshold score rounded to two decimal places in the range [0~100], showing the minimum requirement of the score when the **False Acceptance Rate** is 0.1%. This bar is the lowest. |
 | `one_e4`              | Float    | A threshold score rounded to two decimal places in the range [0~100], showing the minimum requirement of the score when the **False Acceptance Rate** is 0.01%. This bar is higher than one_e3, but lower than one_e4. |
-| `one_e5`              | Float    | A threshold score rounded to two decimal places in the range [0~100], showing the minimum requirement of the score when the **False Acceptance Rate** is 0.001%. This bar is the highest.
+| `one_e5`              | Float    | A threshold score rounded to two decimal places in the range [0~100], showing the minimum requirement of the score when the **False Acceptance Rate** is 0.001%. This bar is the highest. -->
+
+Please note that now we won't return the thresholds for the comparison anymore. Please refer to `is_match` directly.
 
 ## List of Error Messages and Error Codes
 
@@ -56,4 +59,7 @@ The following is a comprehensive list of potential error codes returned by the e
 | `003`        | Image file size is too large.                      | The engine has a 10MB limit for image files; ensure they do not exceed this size.|
 | `004`        | Request is not in the correct format.              | This error indicates an issue with the request format or missing key fields.|
 | `005`        | Server internal error, please try again.           | In the case of an internal server error, please try again and contact us if the issue persists.|
+| `006`        | Document liveness verification failed!             | Document liveness verification returned a none `Genuine` status, please check the ID you are holding. |
+| `007`        | Image resolution too low!                          | The uploaded image resolution is too low to pass. |
 | `041`        | Compare model returned failed result, face is missing in either one of the images. | If either one of the two images have the face missing, this error would be returned. Note that the case where there are multiple faces in the selfie is handled by [LivenessAPI](./FaceLivenessAPI.md) |
+| `042`        | You should take your photo together with you ID, please try again. | We cannot find enough information from the image. In the current setting, you should be taking selfie with your ID, are you sure you are doing it correctly? |

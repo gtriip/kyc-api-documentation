@@ -48,5 +48,6 @@ The following is a comprehensive list of potential error codes returned by the e
 | `003`        | Image file size is too large.                      | The engine has a 10MB limit for image files; ensure they do not exceed this size.|
 | `004`        | Request is not in the correct format.              | This error indicates an issue with the request format or missing key fields.|
 | `005`        | Server internal error, please try again.           | In the case of an internal server error, please contact us if the issue persists.|
+| `007`        | Image resolution too low!                          | The uploaded image resolution is too low to pass. |
 | `051`        | No face, or more than one face is detected in the selfie. | We strictly require there to be only one face in the selfie image, so we would know which face should we check liveness for. Please ask the KYC end user to take this image in a clean background with no other face in the image to avoid this error. If the image has no face inside, it should also result in a failed request.|
 | `052`        | Face mask is detected, please remove the face mask and try again. | This is a KYC concern, as we do not wish to allow the KYC process to be done with a face mask on. So if a mask is detected, the request would fail with this error.
