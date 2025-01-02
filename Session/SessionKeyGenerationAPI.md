@@ -1,5 +1,5 @@
 # Session Key Generator API
-This API is designed for generating the session token for session-based API requests. You would only need to generate a session token if we require you to do so. Please confirm with Gtriip developers for this function.
+This API is designed for generating the session token for session-based API requests. You would only need to generate a session token if we require you to do so. Please confirm with Trevo developers for this function.
 
 - **URL:** `/session/`
 - **Allowed method:** `GET`

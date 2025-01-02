@@ -2,7 +2,7 @@
 
 ## Base URL
 
-The base URL is https://kyc.gtriip.com. (https://kyc-qa.gtriip.com for Staging QA environment)
+The base URL is https://kyc.trevo.ai. (https://kyc-qa.trevo.ai for Staging QA environment)
 
 ## Endpoints require no authentication
 We currently don't have any endpoint which doesn't require authentication.
