@@ -22,7 +22,7 @@ This API is designed to process passport detail recognition requests. It is spec
 | Response Field Name | Type     | Remarks                                            |
 |----------------------|----------|----------------------------------------------------|
 | `success`            | Boolean  | Whether the request is successfully recognized.   |
-| `result`             | JSON     | *Only for successful requests* The dictionary of recognition results, with detailed fields included in [this section](#passport-recognition-result-dictionary). |
+| `result`             | JSON     | *Only for successful requests and some failed requests, please refer to the error section below.* The dictionary of recognition results, with detailed fields included in [this section](#passport-recognition-result-dictionary). |
 | `error_message`      | String   | *Only for failed requests* Details of the encountered error. |
 | `error_code`         | String   | *Only for failed requests* The error code for easier reference. Detailed matching can be found in [this section](#list-of-error-messages-and-error-codes). |
 
@@ -61,6 +61,8 @@ The dictionary content is as listed in the table below. For more detailed inform
 ## List of Error Messages and Error Codes
 The following is a comprehensive list of potential error codes returned by the engine, along with their respective error messages and explanations:
 
+### Error Cases: Only Error Information
+ In the following cases, only error status and error messages would be returned.
 | Error Code | Error Message                                        | Remarks                                                    |
 |------------|-----------------------------------------------------|------------------------------------------------------------|
 | `001`        | API key is either missing or incorrect.            | Please check the provided API key.            |
@@ -73,7 +75,20 @@ The following is a comprehensive list of potential error codes returned by the e
 | `006`        | Document liveness verification failed!             | Document liveness verification returned a none `Genuine` status, please use your original passport to take. |
 | `011`        | Face image is required but not found in the document. | This error is prompted when `skip_face_detect` is set to false, but no valid face image is found in the document.|
 | `012`        | MRZ code is of a different type, please try again. | This error is triggered when the MRZ code recognized is not "TD3," leading to a failed recognition.|
-| `013`        | Error reading MRZ code, please try again.          | This error occurs during the MRZ reading process, often due to offsets caused by stains or other issues.|
-| `014`        | Error parsing MRZ code, please ensure there are no obstacles or glare on the bottom code portion. | This error indicates that the model failed to locate the MRZ code.|
+| `013`        | Error reading MRZ code, please try again.          | This error occurs during detection, when we couldn't even see the MRZ in the image.|
+| `014`        | Error parsing MRZ code, please ensure there are no obstacles or glare on the bottom code portion. | This error indicates that the MRZ accuracy is too low, either because of altering of MRZ parts, or because of mis-reading of some characters due to glare or stain in the MRZ region. |
 | `015`        | Passport specimen detected.                         | *This error is currently not in use.* It is triggered when a specimen instead of a real passport is detected.|
-| `016`        | MRZ code check failed, please try again, ensure there are no obstacles or glare on the bottom code portion. | This error occurs during MRZ parsing, often due to stains or glare in the MRZ region.|
+| `016`        | MRZ code check failed, please try again, ensure there are no obstacles or glare on the bottom code portion. | This error occurs during MRZ parsing, we are unable to parse correct information from the MRZ region, often due to stains or glare in the MRZ region.|
+
+### Error Cases: MRZ Results with Error Status
+In the following cases, the MRZ result will be returned along with the corresponding error status for further verification.
+
+| **Error Code** | **Error Message**                                   | **Remarks**                                                 |
+|----------------|-----------------------------------------------------|-------------------------------------------------------------|
+| `081`          | Passport number from VIZ does not match the MRZ.    | VIZ and MRZ mismatch detected. Please verify the passport number field. |
+| `082`          | Date of birth from VIZ does not match the MRZ.      | VIZ and MRZ mismatch detected. Please verify the date of birth field. |
+| `083`          | Date of expiry from VIZ does not match the MRZ.     | VIZ and MRZ mismatch detected. Please verify the date of expiry field. |
+| `084`          | Name from VIZ does not match the MRZ.               | VIZ and MRZ mismatch detected. Please verify the name field. |
+| `085`          | Suspected paste-over on the passport photo.         | Please inspect the passport photo to ensure its authenticity. |
+| `086`          | Suspected photocopy instead of the original passport. | Please verify that the passport is an original document and not a photocopy. |
+| `087`          | Suspected screen recapture of the passport.         | Please verify that the passport is an original document and not a screen-captured image. |
