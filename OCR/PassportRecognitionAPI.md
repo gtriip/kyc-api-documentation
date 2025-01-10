@@ -92,3 +92,36 @@ In the following cases, the MRZ result will be returned along with the correspon
 | `085`          | Suspected paste-over on the passport photo.         | Please inspect the passport photo to ensure its authenticity. |
 | `086`          | Suspected photocopy instead of the original passport. | Please verify that the passport is an original document and not a photocopy. |
 | `087`          | Suspected screen recapture of the passport.         | Please verify that the passport is an original document and not a screen-captured image. |
+| `088`          | Parsing VIZ failed, please kindly double check manually. | Parsing VIZ failed because of problem in capturing dates, please check manually. |
+
+#### Sample response for this case:
+```
+{'error_code': '083',
+ 'error_message': 'Date of expiry from VIZ does not match the MRZ.',
+ 'result': {'check_composite': '...',
+            'check_date_of_birth': '...',
+            'check_expiration_date': '...',
+            'check_number': '...',
+            'check_personal_number': '...',
+            'country': 'BGR',
+            'date_of_birth': '...',
+            'document_type': 'passport',
+            'expiration_date': '...',
+            'expired': False,
+            'first_name': 'FirstName FirstName',
+            'last_name': 'LastName',
+            'mrz_type': 'TD3',
+            'nationality': 'BGR',
+            'number': ...,
+            'personal_number': ...,
+            'raw_text': ...,
+            'sex': 'Female',
+            'type': 'P<',
+            'valid_composite': True,
+            'valid_date_of_birth': True,
+            'valid_expiration_date': True,
+            'valid_number': True,
+            'valid_personal_number': True,
+            'valid_score': 100},
+ 'success': False}
+```
