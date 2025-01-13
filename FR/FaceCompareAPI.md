@@ -63,3 +63,4 @@ The following is a comprehensive list of potential error codes returned by the e
 | `007`        | Image resolution too low!                          | The uploaded image resolution is too low to pass. |
 | `041`        | Compare model returned failed result, face is missing in either one of the images. | If either one of the two images have the face missing, this error would be returned. Note that the case where there are multiple faces in the selfie is handled by [LivenessAPI](./FaceLivenessAPI.md) |
 | `042`        | You should take your photo together with you ID, please try again. | We cannot find enough information from the image. In the current setting, you should be taking selfie with your ID, are you sure you are doing it correctly? |
+| `043`        | Face on ID/passport does not match with the selfie, please double check. | Our compare engine thinks that the face on ID/passport doesn't match with the selfie, please double check. |
