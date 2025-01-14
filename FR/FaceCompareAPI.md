@@ -64,3 +64,18 @@ The following is a comprehensive list of potential error codes returned by the e
 | `041`        | Compare model returned failed result, face is missing in either one of the images. | If either one of the two images have the face missing, this error would be returned. Note that the case where there are multiple faces in the selfie is handled by [LivenessAPI](./FaceLivenessAPI.md) |
 | `042`        | You should take your photo together with you ID, please try again. | We cannot find enough information from the image. In the current setting, you should be taking selfie with your ID, are you sure you are doing it correctly? |
 | `043`        | Face on ID/passport does not match with the selfie, please double check. | Our compare engine thinks that the face on ID/passport doesn't match with the selfie, please double check. |
+
+## Thresholds and Explanations
+We employ two face comparison models to enhance accuracy and reliability. The primary model is an in-house trained system, specialized for ID-to-photo comparisons. A secondary model acts as a backup when the confidence score from the first model falls within an uncertain range. Below are the threshold details for both models:
+
+### Primary Model Thresholds
+- **Confidence Score > 0.50**: Considered a match.
+- **Confidence Score < 0.25**: Considered not a match.
+- **Confidence Score between 0.25 and 0.50**: Falls into the uncertain range, triggering the use of the secondary model for verification.
+
+### Secondary Model Thresholds
+The secondary model operates with three false acceptance rates (FAR). **Currently, we have set the FAR to 0.1%.** This means:
+- **Confidence Score < 62.327%**: Faces are considered not to match.
+- **Confidence Score ≥ 62.327%**: Faces are considered a match.
+
+This two-step process ensures a balanced approach between accuracy and security in face comparisons.

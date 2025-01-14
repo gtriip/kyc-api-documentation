@@ -125,3 +125,25 @@ In the following cases, the MRZ result will be returned along with the correspon
             'valid_score': 100},
  'success': False}
 ```
+
+## Thresholds and Explanations
+
+This API uses four thresholds to ensure accurate and reliable operations. The thresholds are detailed as follows:
+
+### Face Detector Threshold
+- **Current Setting**: 0.75  
+- If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
+
+### Passport MRZ Accuracy Threshold
+- **Current Setting**: 0.62  
+- If the MRZ valid score is below **62%**, the recognition will be rejected. This typically indicates a high likelihood of OCR misreading or potential alteration of the MRZ.
+
+### Photo-Pasting Threshold
+- **Current Setting**: *Not in use*  
+- If the confidence level from the photo-pasting detection model exceeds the threshold, it will be assumed that the photo is pasted onto the passport, leading to recognition rejection.
+
+### Photocopy / Screen Recapture Threshold
+- **Current Setting**: *Not in use, evaluating*  
+- If the confidence level of the photocopy or screen recapture classification is below the threshold, the passport will be considered potentially not a photocopy or screen recapture.
+
+These thresholds are carefully configured to ensure the integrity and security of the face detection and liveness verification processes.
