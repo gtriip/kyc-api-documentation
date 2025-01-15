@@ -302,3 +302,21 @@ We use `country_code` tp set the possible ID types we would check out. Here is t
 * `MO`: `HKI`, `MOO`, `MON`, `EEP` (Covering common IDs used in Hong Kong and Macau region)
 * `AU`: `AUD` (Covering Australian Driving Licenses for QLD, VIC and NSW)
 * `ID`: `KTP` (Covering Kartu Tanda Penduduk in Indonesia)
+
+## Threshold and Explanations
+
+### Face Detector Threshold
+- **Current Setting**: 0.75  
+    - If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
+- **Recommended Setting from Model Side**: 0.60  
+    - However, this lower threshold has caused issues during the comparison stage, as faces with reflection obstructions might pass. Sticking with a higher threshold is recommended to maintain accuracy and reliability.
+
+### Face Segment Sticker Threshold
+- **Current Setting**: 0.50  
+    - If the confidence score for the model detecting the face as a paste-over instead of the original face image exceeds **0.50**, the recognition will be rejected with the status "Document liveness failed."
+- **Recommended Setting**: Same as current setting.
+
+### Card Sticker Threshold
+- **Current Setting**: 0.80  
+    - If the confidence score for the model detecting a paste-over over the text field exceeds **0.80**, it indicates potential document spoofing. The recognition will be rejected with the status "Document liveness failed."
+- **Recommended Setting**: Same as current setting.

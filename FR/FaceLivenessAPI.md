@@ -58,10 +58,15 @@ This API incorporates two key thresholds: one for the **face detector** and anot
 
 ### Face Detector Threshold
 - **Current Setting**: 0.75  
-- If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
+    - If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
+- **Recommended Setting from Model Side**: 0.60  
+    - However, this lower threshold has caused issues during the comparison stage, as faces with reflection obstructions might pass. Sticking with a higher threshold is recommended to maintain accuracy and reliability.
 
 ### Liveness Detector Threshold
 - **Current Setting**: 0.90  
-- If the confidence score for the detected face being real is below **0.90**, the face will be rejected and considered as not live.
+    - If the confidence score for the detected face being real is below **0.90**, the face will be rejected and considered as not live.
+- **Recommended Setting**: 0.95  
+    - If the confidence score for the detected face being real is below **0.95**, the face will be rejected and considered as not live.
+    - A higher threshold increases the likelihood of false rejections, presenting a stricter challenge for acceptance.
 
 These thresholds are designed to maintain the integrity and security of the face detection and liveness verification processes.

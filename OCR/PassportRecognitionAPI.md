@@ -132,11 +132,15 @@ This API uses four thresholds to ensure accurate and reliable operations. The th
 
 ### Face Detector Threshold
 - **Current Setting**: 0.75  
-- If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
+    - If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
+- **Recommended Setting from Model Side**: 0.60  
+    - However, this lower threshold has caused issues during the comparison stage, as faces with reflection obstructions might pass. Sticking with a higher threshold is recommended to maintain accuracy and reliability.
 
 ### Passport MRZ Accuracy Threshold
 - **Current Setting**: 0.62  
-- If the MRZ valid score is below **62%**, the recognition will be rejected. This typically indicates a high likelihood of OCR misreading or potential alteration of the MRZ.
+    - If the MRZ valid score is below **62%**, the recognition will be rejected. This typically indicates a high likelihood of OCR misreading or potential alteration of the MRZ. Setting the threshold at 62% allows for one misread in the personal number field, which is usually not critical.
+- **Recommended Setting**: Same as current setting.
+
 
 ### Photo-Pasting Threshold
 - **Current Setting**: *Not in use*  
