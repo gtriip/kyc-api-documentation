@@ -74,12 +74,12 @@ We employ two face comparison models to enhance accuracy and reliability. The pr
 - **Confidence Score between 0.25 and 0.50**: Falls into the uncertain range, triggering the use of the secondary model for verification.
 
 ### Secondary Model Thresholds
-The secondary model operates with three false acceptance rates (FAR). **Currently, we have set the FAR to 0.1%.** This means:
-- **Confidence Score < 62.327%**: Faces are considered not to match.
-- **Confidence Score ≥ 62.327%**: Faces are considered a match.
+- The secondary model operates with three false acceptance rates (FAR). **Currently, we have set the FAR to 0.1%.** This means:
+    - **Confidence Score < 62.327%**: Faces are considered not to match.
+    - **Confidence Score ≥ 62.327%**: Faces are considered a match.
 
-However, **The recommended thresholds should be set to FAR with 0.01% at least.** Which means:
-- **Confidence Score < 69.101%**: Faces are considered not to match.
-- **Confidence Score ≥ 69.101%**: Faces are considered a match.
+- However, **The recommended thresholds should be set to FAR with 0.01% at least.** Which means:
+    - **Confidence Score < 69.101%**: Faces are considered not to match.
+    - **Confidence Score ≥ 69.101%**: Faces are considered a match.
 
 This two-step process ensures a balanced approach between accuracy and security in face comparisons.

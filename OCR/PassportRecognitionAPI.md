@@ -141,7 +141,6 @@ This API uses four thresholds to ensure accurate and reliable operations. The th
     - If the MRZ valid score is below **62%**, the recognition will be rejected. This typically indicates a high likelihood of OCR misreading or potential alteration of the MRZ. Setting the threshold at 62% allows for one misread in the personal number field, which is usually not critical.
 - **Recommended Setting**: Same as current setting.
 
-
 ### Photo-Pasting Threshold
 - **Current Setting**: *Not in use*  
 - If the confidence level from the photo-pasting detection model exceeds the threshold, it will be assumed that the photo is pasted onto the passport, leading to recognition rejection.
