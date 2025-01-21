@@ -133,10 +133,26 @@ This API uses four thresholds to ensure accurate and reliable operations. The th
 ### Face Detector Threshold
 - **Current Setting**: 0.75  
 - If the confidence score for the detected face is below **0.75**, the face detection will be rejected.
-
 ### Passport MRZ Accuracy Threshold
 - **Current Setting**: 0.62  
-- If the MRZ valid score is below **62%**, the recognition will be rejected. This typically indicates a high likelihood of OCR misreading or potential alteration of the MRZ.
+- If the MRZ valid score is below **62%** (two validation failed), the recognition will be rejected. This typically indicates a high likelihood of OCR misreading or potential alteration of the MRZ.
+#### Validation Checks:
+There are five validation checks performed:
+1. `valid_number`  
+2. `valid_date_of_birth`  
+3. `valid_expiration_date`  
+4. `valid_personal_number`  
+5. `valid_composite`
+
+#### Rejection Criteria:
+Validation will be rejected in the following cases:
+1. **More than 2 checks failed**.  
+2. **If `valid_composite` fails**, and at least one of the following also fails:
+   - **valid_number**  
+   - **valid_date_of_birth**  
+   - **valid_expiration_date**  
+    *(This means failures in `valid_personal_number` and `valid_composite` are allowed together.)*  
+3. **If only `valid_composite` fails**, but all other validity checks pass.  
 
 ### Photo-Pasting Threshold
 - **Current Setting**: *Not in use*  
@@ -147,3 +163,42 @@ This API uses four thresholds to ensure accurate and reliable operations. The th
 - If the confidence level of the photocopy or screen recapture classification is below the threshold, the passport will be considered potentially not a photocopy or screen recapture.
 
 These thresholds are carefully configured to ensure the integrity and security of the face detection and liveness verification processes.
+#
+# About Parsing of DOB and DOE in MRZ and VIZ
+
+### In MRZ:
+MRZ always contains 6-digit dates, meaning the year is represented with 2 digits. Dates of birth (DOB) and expiry (DOE) are parsed using the following logic:
+
+- **Year Parsing**:
+  - For years `00`–`68`: Append `20` in front (e.g., `23` becomes `2023`).
+  - For years `69`–`99`: Append `19` in front (e.g., `85` becomes `1985`).
+
+- **Date of Birth (DOB)**:
+  - If the parsed DOB is **newer than the current date**, subtract 100 years to adjust to the correct century.
+
+- **Date of Expiry (DOE)**:
+  - Parse using the same year rules as above.
+  - Valid year range: **1980 to 2080**.
+  - If the parsed DOE is lower than **1980**, add 100 years.  
+  - If the parsed DOE is higher than **2080**, subtract 100 years.
+
+> **Explanations for DOE**  
+> This range is chosen because countries began issuing machine-readable passports in the 1980s.
+
+---
+
+### In VIZ:
+The VIZ section contains three dates, which must appear in chronological order: Date of Birth (DOB), Date of Issue (DOI), and Date of Expiry (DOE).
+
+- **4-Digit Years**:
+  - If dates use 4-digit years, they are parsed directly.
+
+- **2-Digit Years**:
+  - For years `00`–`68`: Append `20` in front (e.g., `23` becomes `2023`).  
+  - For years `69`–`99`: Append `19` in front (e.g., `85` becomes `1985`).
+
+- **DOB and DOE Parsing**:
+  - If the parsed date is **newer than the current date + 10 years**, subtract 100 years to adjust to the correct century.
+
+> **Why do we handle VIZ differently from MRZ?**  
+> Unlike MRZ, where the date positions are fixed, the VIZ section does not enforce specific locations for each date. Therefore, additional logic is needed to ensure correct parsing and sequencing.
