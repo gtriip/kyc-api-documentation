@@ -317,6 +317,6 @@ We use `country_code` tp set the possible ID types we would check out. Here is t
 - **Recommended Setting**: Same as current setting.
 
 ### Card Sticker Threshold
-- **Current Setting**: 0.80  
-    - If the confidence score for the model detecting a paste-over over the text field exceeds **0.80**, it indicates potential document spoofing. The recognition will be rejected with the status "Document liveness failed."
+- **Current Setting**: 0.50
+    - If the confidence score for the model detecting a paste-over over the text field exceeds **0.50**, it indicates potential document spoofing. The recognition will be rejected with the status "Document liveness failed."
 - **Recommended Setting**: Same as current setting.
