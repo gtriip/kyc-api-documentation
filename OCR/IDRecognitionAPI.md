@@ -312,8 +312,8 @@ We use `country_code` tp set the possible ID types we would check out. Here is t
     - However, this lower threshold has caused issues during the comparison stage, as faces with reflection obstructions might pass. Sticking with a higher threshold is recommended to maintain accuracy and reliability.
 
 ### Face Segment Sticker Threshold
-- **Current Setting**: 0.50  
-    - If the confidence score for the model detecting the face as a paste-over instead of the original face image exceeds **0.50**, the recognition will be rejected with the status "Document liveness failed."
+- **Current Setting**: 0.70
+    - If the confidence score for the model detecting the face as a paste-over instead of the original face image exceeds **0.70**, the recognition will be rejected with the status "Document liveness failed."
 - **Recommended Setting**: Same as current setting.
 
 ### Card Sticker Threshold
