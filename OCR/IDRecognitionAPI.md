@@ -40,7 +40,7 @@ We are still adding more IDs to this list.
 | `skip_face_detect`                   | NO       | List of selections       | This field is optional, the default value is an empty list. This field let you decide which types of the IDs should be ignored for face detection. You should provide a list of selections in 'SGN', 'SGP', 'VNM', 'VNO', 'VNN', 'VND', 'KRI', 'KRD', 'MOO', 'MON', 'HKI', 'EEP', 'AUD', 'KTP' for the types of ID that you wish to allow the face check to be bypassed. |
 | `country_code`                       | NO       | List of selections       | This field is optional, the default value is a list: `['SG', 'VN', 'KR', 'MO', 'ID', 'AU']`. You may select in this list for your use case, so that other kinds of IDs won't be checked. Please refer to the example notebook and Postman for detailed use cases of this field.|
 | `verify_liveness`                    | NO       | Boolean                  | This field is optional and defaults to `False`. You may turn it on if you wish to verify the liveness of document. |
-| `manual_verification`                    | NO       | Boolean                  | This field is optional and defaults to `False`. You may turn it on if you wish to verify the liveness of document manually. |
+| `manual_verification`                    | NO       | Boolean                  | This field is optional and defaults to `False`. You may turn it on if you wish to verify the liveness of document manually by our team. |
 
 
 ## Response Fields
