@@ -17,6 +17,7 @@ The fields needed in the POST request are listed as follows:
 | Request Field Name      | Required | Type          | Remarks |
 |-------------------------|----------|---------------|---------|
 | `image` or `image_bytes`| YES      | File or Bytes | You must provide one of these options, depending on your requirements. For `image`, we accept image files directly, while for `image_bytes`, we expect a **base64-encoded** image. Please refer to the example notebook and Postman for detailed use cases of this field.
+| `manual_verification`   | NO       | Boolean       | This field is optional and defaults to `False`. You may turn it on if you wish to verify the liveness of document manually by our team. |
 
 ## Response Fields
 
